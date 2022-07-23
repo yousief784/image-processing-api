@@ -12,6 +12,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+const resizeImage_1 = require("./../utils/resizeImage");
 const supertest_1 = __importDefault(require("supertest"));
 const __1 = __importDefault(require(".."));
 const request = (0, supertest_1.default)(__1.default);
@@ -24,12 +25,10 @@ describe('test', () => {
         const response = yield request.get('/api/images');
         expect(response.status).toBe(400);
     }));
-    it('test endpoint with valid imagename', () => __awaiter(void 0, void 0, void 0, function* () {
-        const response = yield request.get(`/api/images/?imagename=${validImagename}&width=${width}&height=${height}`);
-        expect(response.status).toBe(200);
+    it('test endpoint with valid imagename, valid width and valid height', () => __awaiter(void 0, void 0, void 0, function* () {
+        yield expectAsync((0, resizeImage_1.getImage)('icelandwaterfall', 600, 250)).toBeResolved();
     }));
-    it('test endpoint with valid imagename', () => __awaiter(void 0, void 0, void 0, function* () {
-        const response = yield request.get(`/api/images/?imagename=${invalidImagename}&width=${width}&height=${height}`);
-        expect(response.status).toBe(400);
+    it('test endpoint with valid imagename, valid width but invalid height', () => __awaiter(void 0, void 0, void 0, function* () {
+        yield expectAsync((0, resizeImage_1.getImage)('icelandwaterfall', 600, -5)).toBeRejected();
     }));
 });
