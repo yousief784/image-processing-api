@@ -26,9 +26,9 @@ describe('test', () => {
         expect(response.status).toBe(400);
     }));
     it('test endpoint with valid imagename, valid width and valid height', () => __awaiter(void 0, void 0, void 0, function* () {
-        yield expectAsync((0, resizeImage_1.getImage)('icelandwaterfall', 600, 250)).toBeResolved();
+        yield expectAsync((0, resizeImage_1.getImage)(validImagename, width, height)).toBeResolved();
     }));
-    it('test endpoint with valid imagename, valid width but invalid height', () => __awaiter(void 0, void 0, void 0, function* () {
-        yield expectAsync((0, resizeImage_1.getImage)('icelandwaterfall', 600, -5)).toBeRejected();
+    it('test endpoint with invalid imagename, valid width but invalid height', () => __awaiter(void 0, void 0, void 0, function* () {
+        yield expectAsync((0, resizeImage_1.getImage)(invalidImagename, width, -1)).toBeRejected();
     }));
 });

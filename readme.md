@@ -43,3 +43,9 @@ Will scale the fjord image to 200 by 200 pixels.
     _resubmit
     - error handling in http://localhost:3000/api/images?imagename=fjord&height=-1
     - test function without sending request src/tests/indexSpec.ts
+
+#### Notes
+
+    _resubmit2
+    - test function without sending request src/tests/indexSpec.ts
+    - indexSpec.ts file removed by mistake in the last submit

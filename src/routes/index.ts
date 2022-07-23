@@ -1,11 +1,10 @@
 import { getImage, checkIfImageExist } from './../utils/resizeImage';
 import express, { Request, Response } from 'express';
 import fs from 'fs';
-import { nextTick } from 'process';
 const router = express.Router();
 const pathFromRoot = process.cwd() + '/public';
 
-router.get('/images', async (req: Request, res: Response, next): Promise<void> => {
+router.get('/images', async (req: Request, res: Response): Promise<void> => {
     const query: {
         imagename?: string;
         width?: string;
@@ -45,7 +44,6 @@ router.get('/images', async (req: Request, res: Response, next): Promise<void> =
                 }
             } else {
                 res.status(400).send('invalid image Name');
-
             }
         }
     } else {

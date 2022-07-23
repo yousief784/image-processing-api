@@ -17,7 +17,7 @@ const express_1 = __importDefault(require("express"));
 const fs_1 = __importDefault(require("fs"));
 const router = express_1.default.Router();
 const pathFromRoot = process.cwd() + '/public';
-router.get('/images', (req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
+router.get('/images', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     var _a;
     const query = req.query;
     const imageName = (_a = query.imagename) === null || _a === void 0 ? void 0 : _a.split('.')[0];
