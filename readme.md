@@ -37,3 +37,9 @@ Will display the original fjord image.
 
 http://localhost:3000/api/images?imagename=fjord&width=200&height=200
 Will scale the fjord image to 200 by 200 pixels.
+
+#### Notes
+
+    _resubmit
+    - error handling in http://localhost:3000/api/images?imagename=fjord&height=-1
+    - test function without sending request src/tests/indexSpec.ts
